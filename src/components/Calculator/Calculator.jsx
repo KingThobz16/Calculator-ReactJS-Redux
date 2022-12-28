@@ -1,7 +1,7 @@
 import React from 'react'
 import './Calculator.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { setOperator, setCurrentValue, calculateResults, resetAll, deleteValue, addDecimal, percentageOperator } from '../../features/calculatorSlice';
+import { setOperator, setCurrentValue, calculateResults, resetAll, deleteValue, addDecimal, percentageOperator, squareOperator } from '../../features/calculatorSlice';
 
 const Calculator = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const Calculator = () => {
         </div>
         <div className="calculator__buttons">
             <button onClick={() => dispatch(resetAll())} className="clear operator" id="clear-btn">C</button>
-            <button onClick={() => dispatch(setOperator('()'))} className="operator" value="()">()</button>
+            <button onClick={() => dispatch(squareOperator('x'))} className="operator" value="x²">x²</button>
             <button onClick={() => dispatch(percentageOperator('%'))} className="operator" value="%">%</button>
             <button onClick={() => dispatch(setOperator('/'))} className="operator" value="/">÷</button>
             <button onClick={() => dispatch(setCurrentValue(7))} value="7">7</button>

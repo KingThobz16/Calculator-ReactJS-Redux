@@ -38,6 +38,11 @@ const calculatorSlice = createSlice({
             state.previousValue = state.currentValue;
             state.currentValue = "";
         },
+        squareOperator: (state, {payload}) => {
+            state.operator = payload;
+            state.results = Number(state.currentValue) ** 2;
+            state.currentValue = "";
+        },
         calculateResults: (state) => {
             switch(state.operator) {
 
@@ -45,34 +50,40 @@ const calculatorSlice = createSlice({
                     state.results = Number(state.previousValue) / Number(state.currentValue)
                     state.currentValue = '';
                     state.previousValue = '';
+                    state.operator = null;
                   break;
 
                 case '*':
                     state.results = Number(state.previousValue) * Number(state.currentValue)
                     state.currentValue = '';
                     state.previousValue = '';
+                    state.operator = null;
                   break;
 
                 case '+':
                     state.results = Number(state.previousValue) + Number(state.currentValue)
                     state.currentValue = '';
                     state.previousValue = '';
+                    state.operator = null;
                   break;
 
                 case '-':
                     state.results = Number(state.previousValue) - Number(state.currentValue)
                     state.currentValue = '';
                     state.previousValue = '';
+                    state.operator = null;
                   break;
 
                 case '%':
                     state.results = Number(state.previousValue) * Number(state.currentValue) / 100;
                     state.currentValue = '';
                     state.previousValue = '';
+                    state.operator = null;
                   break;
 
                 default:
-                  state.results = "Error"
+                    !state.currentValue || !state.previousValue ? state.results = "Enter A Value" : state.results = "Error"
+                    state.operator = null;
                 }
             },
             resetAll: (state) => {
@@ -87,6 +98,6 @@ const calculatorSlice = createSlice({
 
 const { actions, reducer } = calculatorSlice;
 
-export const { setOperator, setCurrentValue, calculateResults, resetAll, deleteValue, addDecimal, percentageOperator } = actions;
+export const { setOperator, setCurrentValue, calculateResults, resetAll, deleteValue, addDecimal, percentageOperator, squareOperator } = actions;
 
 export default reducer;

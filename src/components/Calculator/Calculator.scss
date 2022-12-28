@@ -1,0 +1,62 @@
+@use '../../scss/' as *;
+
+.calculator {
+    width: 250px;
+    background-color: rgb(215, 217, 215);
+    padding: 5px;
+    border-radius: 6px;
+    
+    .calculator__display {
+        height: 130px;
+        @include flex(flex-end, center);
+        background-color: $white;
+        color: $textColor;
+        margin-bottom: 5px;
+        border-radius: 6px;
+        padding-right: 10px;
+
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .calculator__buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+
+        button {
+            min-height: 50px;
+            font-size: 1.2rem;
+            background-color: $white;
+            border: none;
+            border-radius: 5px;
+
+            &:hover {
+                filter: brightness(80%);
+            }
+
+            &:active {
+                transform: translateY(1px);
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .operator {
+            color: $secondaryColor;
+            // font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .equal-sign {
+            color: $white;
+            background-color: $secondaryColor;
+        }
+
+    }
+
+
+}

@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Lucida Console", sans-serif;
+  font-weight: 100;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: rgb(5, 38, 184);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
